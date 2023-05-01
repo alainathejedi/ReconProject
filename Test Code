@@ -34,7 +34,7 @@ def intro():
                 print("\033[38;5;205mGoogle and Google FU:\033[0m")
                 print("----------------------------------")
                 print("[1] \033[38;5;212mGoogle FU and Explanations\033[0m")
-                print("[2] \033[38;5;99mSearch "The Google"\033[0m")
+                print("[2] \033[38;5;99mSearch \"The Google\"\033[0m")
                 print("[9] \033[96mMain Menu\033[0m")
                 print("[0] Exit")
                 print("----------------------------------")
@@ -46,10 +46,10 @@ def intro():
                     except ValueError:
                         print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
-                if googleoption ==1:
+               # if googleoption ==1:
 
 
-                elif googeoption ==2:
+                if googeoption ==2:
                     searchword= input('Enter a word or phrase that you wish you search google for! You may get a lot of results, so I suggest using some google FU!')
                     url = f'https://www.google.com/search?q={searchword}'
                     response = requests.get(url)
@@ -59,6 +59,8 @@ def intro():
                         print(result.get_text())
                         print("-------------------------------------------")
 
+                else:
+                    mainmenu()
 
             def exit():
                 print("\n\033[38;5;156mAlrighty then! Thanks for visiting Log Lollygagging. We hope it helped! Happy Log Hunting\033[0m")
