@@ -1,0 +1,103 @@
+## Search Google for a term and then output the results ##
+
+import requests
+from bs4 import BeautifulSoup
+
+
+def intro():
+
+    def mainmenu():
+        print("|----------------------------------|")
+        print("\033[38;5;156m| *** MAIN MENU *** |\033[0m")
+        print("|----------------------------------|")
+        print("| [1] Nmap |")
+        print("|----------------------------------|")
+        print("| [2] Lalalala |")
+        print("|----------------------------------|")
+        print("| [4] Google and Google FU! |")
+        print("|----------------------------------|")
+        print("| [8] Reset the Program |")
+        print("|----------------------------------|")
+        print("| [0] Exit |")
+        print("|----------------------------------|")
+
+        while True:
+            try:
+                option=int(input("\n\033[38;5;156mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m "))
+                break
+            except ValueError:
+                print("\n\033[38;5;203mOpe!  What a midwestern thing of me to say...Let's try again, that didn't feel right!\033[0m\n")
+
+        while option !=8:
+            def option4():
+                print("----------------------------------")
+                print("\033[38;5;205mGoogle and Google FU:\033[0m")
+                print("----------------------------------")
+                print("[1] \033[38;5;212mGoogle FU and Explanations\033[0m")
+                print("[2] \033[38;5;99mSearch "The Google"\033[0m")
+                print("[9] \033[96mMain Menu\033[0m")
+                print("[0] Exit")
+                print("----------------------------------")
+
+                while True:
+                    try:
+                        googleoption=int(input("\n\033[38;5;205mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
+                        break
+                    except ValueError:
+                        print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+
+                if googleoption ==1:
+
+
+                elif googeoption ==2:
+                    searchword= input('Enter a word or phrase that you wish you search google for! You may get a lot of results, so I suggest using some google FU!')
+                    url = f'https://www.google.com/search?q={searchword}'
+                    response = requests.get(url)
+                    soup = BeautifulSoup(response.content, 'html.parser')
+                    results = soup.select('.r a')
+                    for result in results:
+                        print(result.get_text())
+                        print("-------------------------------------------")
+
+
+            def exit():
+                print("\n\033[38;5;156mAlrighty then! Thanks for visiting Log Lollygagging. We hope it helped! Happy Log Hunting\033[0m")
+                os._exit(0)
+
+
+### MAIN MENU FINAL PART OF DEF ###
+
+            if option ==1:
+                option1()
+            elif option ==2:
+                option2()
+            elif option ==3:
+                option3()
+            elif option ==4:
+                option4()
+            elif option ==5:
+                option5()
+            elif option ==6:
+                option6()
+                mainmenu()
+            elif option ==0:
+                exit()
+            else:
+                print("\n\033[38;5;203mInvalid choice, try again.\033[0m")
+                mainmenu()
+
+
+### MAIN MENU 8 - RESET THE PROGRAM ###
+
+        if option ==8:
+            response=input("\n\033[38;5;38mWould you like to parse through another pcap file? Type Y for YES and N for NO\033[0m\n")
+            if response.lower() =='y':
+                intro()
+            elif response.lower() =='n':
+                mainmenu()
+            else:
+                print("\n\033[38;5;203mOh schucks. It looks like that wasn't a valid option! Let us start again!\033[0m\n")
+                mainmenu()
+
+    mainmenu()
+intro()
