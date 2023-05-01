@@ -1,4 +1,4 @@
-## Search Google for a term and then output the results ##
+#!usr/bin/python3
 
 import requests
 from bs4 import BeautifulSoup
