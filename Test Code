@@ -57,9 +57,10 @@ def intro():
                     print("----------------------------------")
                     print("[1] Only Host Discovery")
                     print("[2] Only Port Discovery")
-                    print("[3] OS Discovery")
+                    print("[3] OS Discovery - Need ROOT access!")
                     print("[4] Service Version Discovery") 
-                    print("[5]")
+                    print("[5] Scan for Service, Traceroute, Ports, OS, and Scripts")
+                    print("[6] Scan by Speed")
                     print("[9] \033[96mMain Menu\033[0m")
                     print("[0] Exit")
                     print("----------------------------------")
@@ -91,7 +92,43 @@ def intro():
                     elif nmaphostos ==4:
                         target4 = input("What is the target IP or URL you are attempting to scan?")
                         os.system("nmap -sV " + target4)
+                    elif nmaphostos ==5:
+                        target5= input("What is the target IP or URL you are attempting to scan?")
+                        os.system("nmap -A " + target5)
+                    elif nmaphostos==6:
+                        print("----------------------------------")
+                        print("\033[38;5;205mScan by Speed\033[0m")
+                        print("----------------------------------")
+                        print("[0] Paranoia (T0, IDS Evasion)")
+                        print("[1] Sneaky Sneaky (T1, IDS Evasion)")
+                        print("[2] Minnesota Nice (T2, Slows down to use less bandwith and resources)")
+                        print("[3] Normies (T3, the normal scan speed)") 
+                        print("[4] Assertive (T4, Speeds up the scan)")
+                        print("[5] Aggressive (T5, Very speedy scan on a reliable network)")
+                        print("[6] Nmap Menu")
+                        print("[9] \033[96mMain Menu\033[0m")
+                        print("----------------------------------")
+                        target = input("What is the IP or URL you are attempting to scan?")
                         
+                        while True:
+                            try:
+                                scanbyspeed=int(input("\nWhat do you want to do? Just type the number, scan by the speed you want! The slower the speed, the more accurate it MAY be...though it will take time!"))
+                                break
+                            except ValueError:
+                                print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+
+                        if scanbyspeed ==0:
+                            os.system("nmap -T0 " + target)
+                        elif scanbyspeed ==1:
+                            os.system("nmap -T1 " + target)
+                        elif scanbyspeed ==2:
+                            os.system("nmap -T2 " + target)
+                        elif scanbyspeed ==3:
+                            os.system("nmap -T3 " + target)
+                        elif scanbyspeed ==4:
+                            os.system("nmap -T4 " + target)
+                        elif scanbyspeed ==5:
+                            os.system("nmap -T5 " + target)
                     else:
                         mainmenu()
                     
