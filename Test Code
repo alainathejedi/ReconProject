@@ -66,7 +66,7 @@ def intro():
                     
                     while True:
                         try:
-                            nmapoption=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
+                            nmaphostos=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
                             break
                         except ValueError:
                             print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
@@ -74,10 +74,24 @@ def intro():
                     if nmaphostos ==1:
                         target1 = input("What is the target IP or URL you are attempting to scan?")
                         os.system("nmap -sn " + target1)
-                    elif mnaphostos ==2:
+                    elif nmaphostos ==2:
                         target2= input("What is the target IP or URL you are attempting to scan?")
                         os.system("nmap -Pn " + target2)
-                        
+                    elif nmaphostos ==3:
+                        target3= input("What is the target IP or URL you are attempting to scan?")
+                        os.system("nmap -O " + target3)
+                        oscheck = int(input("Were you able to find the OS version and information? Or would you like to do a more intense scan? Type 1 if you're good, type 2 if you need a deeper scan!"))
+                        if oscheck ==1:
+                            option1()
+                        elif oscheck ==2:
+                            os.system("nmap -O --osscan-guess " + target3)
+                        else:
+                            print("Oops! Looks like an invalid option. Let's try again, shall we?")
+                    
+                    elif nmaphostos ==4:
+                        target4 = input("What is the target IP or URL you are attempting to scan?")
+                        os.system("nmap -sV " + target4)
+                    
                 
             def option4():
                 print("----------------------------------")
