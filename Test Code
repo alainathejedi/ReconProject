@@ -91,6 +91,9 @@ def intro():
                     elif nmaphostos ==4:
                         target4 = input("What is the target IP or URL you are attempting to scan?")
                         os.system("nmap -sV " + target4)
+                        
+                    else:
+                        mainmenu()
                     
                 
             def option4():
