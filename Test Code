@@ -52,7 +52,7 @@ def intro():
                     print("\nThis is the explanation of nmap and basically a little cheat sheet for the basic flags to accompany the command.\n")
                     mainmenu()
                 elif nmapoption ==2:
-                    def nmaphostmenu()
+                    def nmaphostmenu():
                         print("----------------------------------")
                         print("\033[38;5;140mNmap - Hosts and Operating Systems:\033[0m")
                         print("----------------------------------")
