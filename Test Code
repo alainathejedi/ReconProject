@@ -148,6 +148,7 @@ def intro():
 
                         elif nmaphostos ==7:
                             os.system("nmap -h")
+                            nmaphostmenu()
 
                         elif nmaphostos ==9:
                             mainmenu()
