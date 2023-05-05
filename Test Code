@@ -155,7 +155,10 @@ def intro():
                         else:
                             print("\nOops! Let's try again, shall we?\n")
                             option1()
-                    
+                    nmaphostmenu()
+                
+                elif nmapoption ==9:
+                    mainmenu()
                 
             def option4():
                 print("----------------------------------")
