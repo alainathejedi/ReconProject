@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 
 import os
 import requests
@@ -59,7 +59,7 @@ def intro():
                     print("[2] Only Port Discovery")
                     print("[3] OS Discovery")
                     print("[4] Service Version Discovery") 
-                    print("[5]
+                    print("[5]")
                     print("[9] \033[96mMain Menu\033[0m")
                     print("[0] Exit")
                     print("----------------------------------")
@@ -72,8 +72,11 @@ def intro():
                             print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
                     if nmaphostos ==1:
-                          target = input("What is the target IP you are attempting to scan?")
-                          os.system("nmap -sn" + target)
+                        target1 = input("What is the target IP or URL you are attempting to scan?")
+                        os.system("nmap -sn " + target1)
+                    elif mnaphostos ==2:
+                        target2= input("What is the target IP or URL you are attempting to scan?")
+                        os.system("nmap -Pn " + target2)
                         
                 
             def option4():
