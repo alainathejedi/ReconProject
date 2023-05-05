@@ -30,6 +30,52 @@ def intro():
                 print("\n\033[38;5;203mOpe!  What a midwestern thing of me to say...Let's try again, that didn't feel right!\033[0m\n")
 
         while option !=8:
+            def option1():
+                print("----------------------------------")
+                print("\033[38;5;205mNmap:\033[0m")
+                print("----------------------------------")
+                print("[1] Nmap Explained and Basic Commands List")
+                print("[2] Preset Nmap scanning - Hosts and Operating Systems")
+                print("[3] Preset Nmap Scanning - Ports and SYN/ACK Flags")
+                print("[9] \033[96mMain Menu\033[0m")
+                print("[0] Exit")
+                print("----------------------------------")
+                
+                while True:
+                    try:
+                        nmapoption=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
+                        break
+                    except ValueError:
+                        print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+
+                if nmapoption ==1:
+                    print("This is the explanation of nmap and basically a little cheat sheet for the basic flags to accompany the command.")
+                    mainmenu()
+                elif nmapoption ==2:
+                    print("----------------------------------")
+                    print("\033[38;5;205mNmap - Hosts and Operating Systems:\033[0m")
+                    print("----------------------------------")
+                    print("[1] Only Host Discovery")
+                    print("[2] Only Port Discovery")
+                    print("[3] OS Discovery")
+                    print("[4] Service Version Discovery") 
+                    print("[5]
+                    print("[9] \033[96mMain Menu\033[0m")
+                    print("[0] Exit")
+                    print("----------------------------------")
+                    
+                    while True:
+                        try:
+                            nmapoption=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
+                            break
+                        except ValueError:
+                            print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+
+                    if nmaphostos ==1:
+                          target = input("What is the target IP you are attempting to scan?")
+                          os.system("nmap -sn" + target)
+                        
+                
             def option4():
                 print("----------------------------------")
                 print("\033[38;5;205mGoogle and Google FU:\033[0m")
@@ -37,7 +83,6 @@ def intro():
                 print("[1] \033[38;5;212mGoogle FU and Explanations\033[0m")
                 print("[2] \033[38;5;99mSearch \"The Google\"\033[0m")
                 print("[9] \033[96mMain Menu\033[0m")
-                print("[0] Exit")
                 print("----------------------------------")
 
                 while True:
@@ -60,8 +105,11 @@ def intro():
                         print(result.get_text())
                         print("-------------------------------------------")
 
-                else:
+                elif googleoption ==9:
                     mainmenu()
+                else:
+                    print("Oops! Looks like an invalid option. Want to try again?")
+                    option4()
 
             def exit():
                 print("\n\033[38;5;156mAlrighty then! Thanks for visiting Log Lollygagging. We hope it helped! Happy Log Hunting\033[0m")
