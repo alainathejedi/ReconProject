@@ -75,7 +75,6 @@ def intro():
 
                         while True:
                             try:
-                                target = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
                                 nmaphostos=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
                                 break
                             except ValueError:
@@ -148,6 +147,8 @@ def intro():
                                 elif scanbyspeed ==6:
                                     option1()
 
+                            scanbyspeed()    
+                                    
                         elif nmaphostos ==7:
                             os.system("nmap -h")
                             nmaphostmenu()
@@ -155,12 +156,13 @@ def intro():
                         elif nmaphostos ==9:
                             mainmenu()
                             
-                        elif nmaphostos ==111:
-                            target = input("What IP or URL would you like to scan next?")
+                      
 
                         else:
                             print("\nOops! Let's try again, shall we?\n")
                             option1()
+                                    
+                    target = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
                     nmaphostmenu()
                 
                 elif nmapoption ==9:
