@@ -109,10 +109,10 @@ def intro():
                         print("----------------------------------")
                         print("[1] Only Host Discovery")
                         print("[2] Only Port Discovery")
-                        print("[3] OS Discovery - Need ROOT access!")
+                        print("[3] OS Discovery - Need \033[1mROOT\033[0m access!")
                         print("[4] Service Version Discovery") 
-                        print("[5] Scan for Service, Traceroute, Ports, OS, and Scripts")
-                        print("[6] Scan by Speed")
+                        print("[5] Scan for Service, Traceroute, Ports, OS, and Scripts (nmap -A)")
+                        print("[6] \033[38;5;226mScan by Speed (T1, T2, etc)\033[0m")
                         print("[7] Nmap Man Page")
                         print("[9] \033[96mMain Menu\033[0m")
                         print("[111] Reset the Target IP or URL")
@@ -208,14 +208,13 @@ def intro():
                            
                         elif nmaphostos ==111:
                             target2 = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
-                            while True:
-                                target2 = target
+                            target = target2
+                            print("The new Target IP or URL is: " + target2)
                             
                         else:
                             print("\nOops! Let's try again, shall we?\n")
                             nmaphostmenu()
                                     
-                    target = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
                     nmaphostmenu()
                 
                 elif nmapoption ==9:
@@ -260,7 +259,7 @@ def intro():
                         except Exception as e:
                             print(f"Error: {e}")
 
-                    query = input("Enter your search query: ")
+                    query = input("What do you want to search for?: ")
                     google_search(query)
                     
 
@@ -299,20 +298,12 @@ def intro():
                             print(f"Error: {e}")
 
                     # Example usage
-                    query = input("Enter your search query: ")
+                    query = input("What do you want to search for?: ")
                     google_search(query)
 
 
             
-                #if googeoption ==2:
-                 #   searchword= input('Enter a word or phrase that you wish you search google for! You may get a lot of results, so I suggest using some google FU!')
-                  #  url = f'https://www.google.com/search?q={searchword}'
-                   # response = requests.get(url)
-                    #soup = BeautifulSoup(response.content, 'html.parser')
-                    #results = soup.select('.r a')
-                    #for result in results:
-                     #   print(result.get_text())
-                      #  print("-------------------------------------------")
+
 
                 elif googleoption ==9:
                     mainmenu()
@@ -321,7 +312,7 @@ def intro():
                     option4()
 
             def exit():
-                print("\n\033[38;5;156mAlrighty then! Thanks for visiting Log Lollygagging. We hope it helped! Happy Log Hunting\033[0m")
+                print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy hunting!\033[0m")
                 os._exit(0)
 
 
