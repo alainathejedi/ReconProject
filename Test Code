@@ -36,11 +36,11 @@ def intro():
     print("     .         +   .  .  ...:: ..|  --.:|")
     print(".      . . .   .  .  . ... :..:..(  ..")
     print(" .   .       .      :  .   .: ::/  .  .::\\ ______ ____    ____ .______    _______ .______          ___       __   _______  ")
-                                              print(" /      |\   \  /   / |   _  \  |   ____||   _  \        /   \     |  | |       \ ")
-                                              print("|  ,----' \   \/   /  |  |_)  | |  |__   |  |_)  |      /  ^  \    |  | |  .--.  |")
-                                              print("|  |       \_    _/   |   _  <  |   __|  |      /      /  /_\  \   |  | |  |  |  |")
-                                              print("|  `----.    |  |     |  |_)  | |  |____ |  |\  \----./  _____  \  |  | |  '--'  |")
-                                              print(" \______|    |__|     |______/  |_______|| _| `._____/__/     \__\ |__| |_______/ ")
+    print("                                           /      |\   \  /   / |   _  \  |   ____||   _  \        /   \     |  | |       \ ")
+    print("                                          |  ,----' \   \/   /  |  |_)  | |  |__   |  |_)  |      /  ^  \    |  | |  .--.  |")
+    print("                                          |  |       \_    _/   |   _  <  |   __|  |      /      /  /_\  \   |  | |  |  |  |")
+    print("                                          |  `----.    |  |     |  |_)  | |  |____ |  |\  \----./  _____  \  |  | |  '--'  |")
+    print("                                           \______|    |__|     |______/  |_______|| _| `._____/__/     \__\ |__| |_______/ ")
 
 
 #Thank you for visiting https://asciiart.website/
@@ -118,7 +118,9 @@ def intro():
                                 break
                             except ValueError:
                                 print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+                                nmaphostmenu()
 
+                                
                         if nmaphostos ==1:
                             os.system("nmap -sn " + target)
                             nmaphostmenu()
@@ -135,6 +137,7 @@ def intro():
                                 os.system("nmap -O --osscan-guess " + target)
                             else:
                                 print("\nOops! Looks like an invalid option. Let's try again, shall we? ")
+                                nmaphostmenu()
 
                         elif nmaphostos ==4:
                             os.system("nmap -sV " + target)
@@ -194,12 +197,13 @@ def intro():
 
                         elif nmaphostos ==9:
                             mainmenu()
-                            
-                      
+                           
+                        elif nmaphostos ==111:
+                            target = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
 
                         else:
                             print("\nOops! Let's try again, shall we?\n")
-                            option1()
+                            nmaphostmenu()
                                     
                     target = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
                     nmaphostmenu()
