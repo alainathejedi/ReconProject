@@ -51,6 +51,10 @@ def intro():
                     except ValueError:
                         print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
+                def targetip():
+                    target = input("What is the IP or URL you are trying to scan?")
+                target()
+                
                 if nmapoption ==1:
                     print("\nThis is the explanation of nmap and basically a little cheat sheet for the basic flags to accompany the command.\n")
                     mainmenu()
@@ -67,6 +71,7 @@ def intro():
                         print("[6] Scan by Speed")
                         print("[7] Nmap Man Page")
                         print("[9] \033[96mMain Menu\033[0m")
+                        print("[111] Reset the Target IP or URL")
                         print("[0] Exit")
                         print("----------------------------------")
 
@@ -78,32 +83,27 @@ def intro():
                                 print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
                         if nmaphostos ==1:
-                            target1 = input("\nWhat is the target IP or URL you are attempting to scan? ")
-                            os.system("nmap -sn " + target1)
+                            os.system("nmap -sn " + target)
                             nmaphostmenu()
                         elif nmaphostos ==2:
-                            target2= input("\nWhat is the target IP or URL you are attempting to scan? ")
-                            os.system("nmap -Pn " + target2)
+                            os.system("nmap -Pn " + target)
                             nmaphostmenu()
 
                         elif nmaphostos ==3:
-                            target3= input("\nWhat is the target IP or URL you are attempting to scan? ")
-                            os.system("nmap -O " + target3)
+                            os.system("nmap -O " + target)
                             oscheck = int(input("Were you able to find the OS version and information? Or would you like to do a more intense scan? Type 1 if you're good, type 2 if you need a deeper scan!"))
                             if oscheck ==1:
                                 option1()
                             elif oscheck ==2:
-                                os.system("nmap -O --osscan-guess " + target3)
+                                os.system("nmap -O --osscan-guess " + target)
                             else:
                                 print("\nOops! Looks like an invalid option. Let's try again, shall we? ")
 
                         elif nmaphostos ==4:
-                            target4 = input("\nWhat is the target IP or URL you are attempting to scan? ")
-                            os.system("nmap -sV " + target4)
+                            os.system("nmap -sV " + target)
                             nmaphostmenu()
                         elif nmaphostos ==5:
-                            target5= input("\nWhat is the target IP or URL you are attempting to scan? ")
-                            os.system("nmap -A " + target5)
+                            os.system("nmap -A " + target)
                             nmaphostmenu()
                         elif nmaphostos==6:
                             def scanbyspeedmenu():
@@ -119,7 +119,7 @@ def intro():
                                 print("[6] Nmap Menu")
                                 print("[9] \033[96mMain Menu\033[0m")
                                 print("----------------------------------")
-                                target = input("\nWhat is the IP or URL you are attempting to scan? ")
+                              
 
                                 while True:
                                     try:
@@ -155,6 +155,9 @@ def intro():
 
                         elif nmaphostos ==9:
                             mainmenu()
+                            
+                        elif nmaphostos ==111:
+                            targetip()
 
                         else:
                             print("\nOops! Let's try again, shall we?\n")
@@ -205,7 +208,7 @@ def intro():
                     
 
 
-                if googleoption ==3:
+                elif googleoption ==3:
                     # Function to retrieve the title and description of a URL
                     def get_title_and_description(url):
                         try:
