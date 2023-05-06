@@ -8,8 +8,9 @@ import requests
 
 
 
-def intro():
+target = ""
 
+def intro():
 
     print(".     .       .  .   . .   .   . .    +  .")
     print("  .     .  :     .    .. :. .___---------___.")
@@ -42,6 +43,8 @@ def intro():
     print("                                          |  `----.    |  |     |  |_)  | |  |____ |  |\  \----./  _____  \  |  | |  '--'  |")
     print("                                           \______|    |__|     |______/  |_______|| _| `._____/__/     \__\ |__| |_______/ ")
 
+    global target
+    target = input("\n\nWhat is the IP or URL you are attempting to scan?")
 
 #Thank you for visiting https://asciiart.website/
 
@@ -50,6 +53,8 @@ def intro():
 
     
     def mainmenu():
+        global target
+        
         print("|----------------------------------|")
         print("\033[38;5;156m| *** MAIN MENU *** |\033[0m")
         print("|----------------------------------|")
@@ -73,6 +78,7 @@ def intro():
 
         while option !=8:
             def option1():
+                global target
                 print("----------------------------------")
                 print("\033[38;5;140mNmap:\033[0m")
                 print("----------------------------------")
@@ -97,8 +103,9 @@ def intro():
                     mainmenu()
                 elif nmapoption ==2:
                     def nmaphostmenu():
+                        global target
                         print("----------------------------------")
-                        print("\033[38;5;140mNmap - Hosts and Operating Systems:\033[0m")
+                        print("\033[38;5;140mNmap - Hosts and Operating Systems:\033[0m - Target = " + target)
                         print("----------------------------------")
                         print("[1] Only Host Discovery")
                         print("[2] Only Port Discovery")
@@ -147,8 +154,9 @@ def intro():
                             nmaphostmenu()
                         elif nmaphostos==6:
                             def scanbyspeedmenu():
+                                global target
                                 print("----------------------------------")
-                                print("\033[38;5;205mScan by Speed\033[0m")
+                                print("\033[38;5;226mScan by Speed\033[0m - Target = " + target)
                                 print("----------------------------------")
                                 print("[0] Paranoia (T0, IDS Evasion)")
                                 print("[1] Sneaky Sneaky (T1, IDS Evasion)")
@@ -156,7 +164,7 @@ def intro():
                                 print("[3] Normies (T3, the normal scan speed)") 
                                 print("[4] Assertive (T4, Speeds up the scan)")
                                 print("[5] Aggressive (T5, Very speedy scan on a reliable network)")
-                                print("[6] Nmap Menu")
+                                print("[6] \033[38;5;140mNmap Menu\033[0m")
                                 print("[9] \033[96mMain Menu\033[0m")
                                 print("----------------------------------")
                               
@@ -199,8 +207,10 @@ def intro():
                             mainmenu()
                            
                         elif nmaphostos ==111:
-                            target = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
-
+                            target2 = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
+                            while True:
+                                target2 = target
+                            
                         else:
                             print("\nOops! Let's try again, shall we?\n")
                             nmaphostmenu()
@@ -327,27 +337,12 @@ def intro():
                 option4()
             elif option ==5:
                 option5()
-            elif option ==6:
-                option6()
-                mainmenu()
             elif option ==0:
                 exit()
             else:
                 print("\n\033[38;5;203mInvalid choice, try again.\033[0m")
                 mainmenu()
 
-
-### MAIN MENU 8 - RESET THE PROGRAM ###
-
-        if option ==8:
-            response=input("\n\033[38;5;38mWould you like to parse through another pcap file? Type Y for YES and N for NO\033[0m\n")
-            if response.lower() =='y':
-                intro()
-            elif response.lower() =='n':
-                mainmenu()
-            else:
-                print("\n\033[38;5;203mOh schucks. It looks like that wasn't a valid option! Let us start again!\033[0m\n")
-                mainmenu()
 
     mainmenu()
 intro()
