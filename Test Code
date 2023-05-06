@@ -189,7 +189,7 @@ def intro():
                                 elif scanbyspeed ==6:
                                     option1()
 
-                            scanbyspeed()    
+                            scanbyspeedmenu()    
                                     
                         elif nmaphostos ==7:
                             os.system("nmap -h")
