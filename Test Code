@@ -227,8 +227,8 @@ def intro():
                         print("\033[38;5;140mNmap - Ports and SYN/ACK:\033[0m - Target = " + target)
                         print("----------------------------------")
                         print("[1] Check a Specific Port")
-                        print("[2] Scan a Port Range - TCP")
-                        print("[3] Scan Multiple TCP and UDP Ports")
+                        print("[2] Scan a Port Range")
+                        print("[3] Scan UDP Ports")
                         print("[4] ") 
                         print("[8] Nmap Man Page")
                         print("[9] \033[96mMain Menu\033[0m")
@@ -245,24 +245,28 @@ def intro():
 
                         if nmapports ==1:
                             portchoice = input("What is the port number you want to check? You can enter 1! ")
-                            os.system("nmap " + target + " -p " + portchoice)
-                            nmapportmenu()
+                            udpcheck1 = input("If this is a TCP Port, type 'T'. If It's UDP type 'U'.
+                            if udpcheck1.lower == 't':
+                                os.system("nmap " + target + " -p " + portchoice)
+                                nmapportmenu()
+                            elif udpcheck1.lower =='u':
+                                os.system("nmap -sU " + target + " -p " + portchoice)
+                                nmapportmenu()
+                            else:
+                                print("Oo, doesn't look like that's a valid option. Let's try again!")
+                                nmapportmenu()
+                                              
                         elif nmapports ==2:
                             portrange = input("What is the range in the port numbers you want to scan? For example, 1-100. It must be: number - number ")
                             os.system("nmap " + target + " -p " + portrange)
                             nmapportmenu()
+                                              
                         elif nmapports ==3:
-                            udpportcheck = input("Would you like to check any UDP Ports? Enter them, or type 'N'")
-                            tcpportcheck = input("Would you like to check any TCP Ports? Enter them, or type 'N'")
-                            if udpportcheck.lower == 'n':
-                                pass 
-                            elif tcpportcheck.lower == 'n':
-                                pass
-                            os.system("nmap " + target + " -p U:" + udpportcheck + ", T:" + tcpportcheck)
+                            os.system("nmap -sU -v" + target)
                             nmapportmenu()
                           
                             
-                            
+                    nmapportmenu()        
                             
                 
                 elif nmapoption ==9:
