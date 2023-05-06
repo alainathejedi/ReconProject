@@ -245,7 +245,7 @@ def intro():
 
                         if nmapports ==1:
                             portchoice = input("What is the port number you want to check? You can enter 1! ")
-                            udpcheck1 = input("If this is a TCP Port, type 'T'. If It's UDP type 'U'.
+                            udpcheck1 = input("If this is a TCP Port, type 'T'. If It's UDP type 'U'.")
                             if udpcheck1.lower == 't':
                                 os.system("nmap " + target + " -p " + portchoice)
                                 nmapportmenu()
@@ -262,7 +262,7 @@ def intro():
                             nmapportmenu()
                                               
                         elif nmapports ==3:
-                            os.system("nmap -sU -v" + target)
+                            os.system("nmap -sn -PU" + target)
                             nmapportmenu()
                           
                             
