@@ -210,6 +210,9 @@ def intro():
                 
                 elif nmapoption ==9:
                     mainmenu()
+                 
+                elif nmapoption ==0:
+                    exit()
                 
             def option4():
                 print("----------------------------------")
