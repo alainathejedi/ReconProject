@@ -51,9 +51,7 @@ def intro():
                     except ValueError:
                         print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
-                
-                target = input("What is the IP or URL you are trying to scan?")
-                
+                               
                 
                 if nmapoption ==1:
                     print("\nThis is the explanation of nmap and basically a little cheat sheet for the basic flags to accompany the command.\n")
@@ -77,6 +75,7 @@ def intro():
 
                         while True:
                             try:
+                                target = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
                                 nmaphostos=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
                                 break
                             except ValueError:
