@@ -44,7 +44,7 @@ def intro():
     print("                                           \______|    |__|     |______/  |_______|| _| `._____/__/     \__\ |__| |_______/ ")
 
     global target
-    target = input("\n\nWhat is the IP or URL you are attempting to scan? ")
+    target = input("\n\n\n\033[1mWhat is the IP or URL you are attempting to scan? \033[0m")
 
 #Thank you for visiting https://asciiart.website/
 
@@ -210,7 +210,7 @@ def intro():
                             mainmenu()
                            
                         elif nmaphostos ==111:
-                            target2 = input("What IP or URL would you like to use for this scan? Note that you can always reset it!")
+                            target2 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it!")
                             target = target2
                             print("The new Target IP or URL is: " + target2)
                             
@@ -226,9 +226,9 @@ def intro():
                         print("----------------------------------")
                         print("\033[38;5;140mNmap - Ports and SYN/ACK:\033[0m - Target = " + target)
                         print("----------------------------------")
-                        print("[1] Check a Specific Port")
+                        print("[1] Check a Specific Port - TCP SYN Scan (UDP in Root Access")
                         print("[2] Scan a Port Range")
-                        print("[3] Scan UDP Ports")
+                        print("[3] TCP ACK Scan")
                         print("[4] ") 
                         print("[8] Nmap Man Page")
                         print("[9] \033[96mMain Menu\033[0m")
@@ -244,25 +244,17 @@ def intro():
                                 print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
                         if nmapports ==1:
-                            portchoice = input("What is the port number you want to check? You can enter 1! ")
-                            udpcheck1 = input("If this is a TCP Port, type 'T'. If It's UDP type 'U'.")
-                            if udpcheck1.lower == 't':
-                                os.system("nmap " + target + " -p " + portchoice)
-                                nmapportmenu()
-                            elif udpcheck1.lower =='u':
-                                os.system("nmap -sU " + target + " -p " + portchoice)
-                                nmapportmenu()
-                            else:
-                                print("Oo, doesn't look like that's a valid option. Let's try again!")
-                                nmapportmenu()
+                            portchoice = input("\nWhat is the port number you want to check? You can enter one TCP Port (UDP in Root Access)! ")
+                            os.system("nmap " + target + " -p " + portchoice)
+                            nmapportmenu()
                                               
                         elif nmapports ==2:
-                            portrange = input("What is the range in the port numbers you want to scan? For example, 1-100. It must be: number - number ")
+                            portrange = input("\nWhat is the range in the port numbers you want to scan? For example, 1-100. It must be: number - number ")
                             os.system("nmap " + target + " -p " + portrange)
                             nmapportmenu()
                                               
                         elif nmapports ==3:
-                            os.system("nmap -sn -PU" + target)
+                            os.system("nmap -sA" + target)
                             nmapportmenu()
                           
                             
