@@ -127,7 +127,7 @@ def intro():
                                 nmap=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
                                 break
                             except ValueError:
-                                print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+                                print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n ")
                                 nmapmenu()
 
                                 
@@ -177,10 +177,10 @@ def intro():
 
                                 while True:
                                     try:
-                                        scanbyspeed=int(input("\nWhat do you want to do? Just type the number, scan by the speed you want! The slower the speed, the more accurate it MAY be...though it will take time!"))
+                                        scanbyspeed=int(input("\nWhat do you want to do? Just type the number, scan by the speed you want! The slower the speed, the more accurate it MAY be...though it will take time! "))
                                         break
                                     except ValueError:
-                                        print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+                                        print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n ")
 
                                 if scanbyspeed ==0:
                                     os.system("nmap -T0 " + target)
@@ -216,7 +216,7 @@ def intro():
                             mainmenu()
                            
                         elif nmap ==30:
-                            target2 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it!")
+                            target2 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it! ")
                             target = target2
                             print("The new Target IP or URL is: " + target2)
                             
@@ -244,14 +244,14 @@ def intro():
                         
                         while True:
                             try:
-                                root=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
+                                root=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning. "))
                                 break
                             except ValueError:
                                 print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
                         if root ==1:
                             os.system("nmap -O " + target)
-                            oscheck = int(input("Were you able to find the OS version and information? Or would you like to do a more intense scan? Type 1 if you're good, type 2 if you need a deeper scan!"))
+                            oscheck = int(input("\nWere you able to find the OS version and information? Or would you like to do a more intense scan? Type 1 if you're good, type 2 if you need a deeper scan! "))
                             if oscheck ==1:
                                 rootmenu()
                             elif oscheck ==2:
