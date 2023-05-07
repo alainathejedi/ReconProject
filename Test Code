@@ -258,7 +258,7 @@ def intro():
                         print("[10] Nmap Man Page")
                         print("[20] \033[38;5;140mNmap Menu\033[0m")
                         print("[30] \033[96mMain Menu\033[0m")
-                        print("[30] \033[214mReset the Target IP or URL\033[0m")
+                        print("[40] \033[214mReset the Target IP or URL\033[0m")
                         print("[0] Exit")
                         print("----------------------------------")
                         
@@ -303,7 +303,10 @@ def intro():
                         elif root ==30:
                             mainmenu()
                         
-                        
+                        elif root ==40:
+                            target4 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it! ")
+                            target = target4
+                            print("The new Target IP or URL is: " + target4)
                             
                         elif root ==0:
                             exit()
