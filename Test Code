@@ -226,9 +226,9 @@ def intro():
                         print("----------------------------------")
                         print("\033[38;5;140mNmap - Ports and SYN/ACK:\033[0m - Target = " + target)
                         print("----------------------------------")
-                        print("[1] Check a Specific Port - TCP SYN Scan (UDP in Root Access")
+                        print("[1] Check a Specific Port - TCP SYN Scan (UDP in Root Access)")
                         print("[2] Scan a Port Range")
-                        print("[3] TCP ACK Scan")
+                        print("[3] Script Scan - Default Script (nmap -sC)")
                         print("[4] ") 
                         print("[8] Nmap Man Page")
                         print("[9] \033[96mMain Menu\033[0m")
@@ -254,7 +254,7 @@ def intro():
                             nmapportmenu()
                                               
                         elif nmapports ==3:
-                            os.system("nmap -sA" + target)
+                            os.system("nmap -sC " + target)
                             nmapportmenu()
                           
                             
