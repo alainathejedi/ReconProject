@@ -80,7 +80,7 @@ def intro():
             def option1():
                 global target
                 print("----------------------------------")
-                print("\033[38;5;140mNmap:\033[0m" | \033[38;5;215mTarget\033[0m = " + target)
+                print("\033[38;5;140mNmap:\033[0m | \033[38;5;215mTarget\033[0m = " + target)
                 print("----------------------------------")
                 print("[1] Nmap Explained and Basic Commands List")
                 print("[2] Preset Nmap scanning")
