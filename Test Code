@@ -236,6 +236,9 @@ def intro():
                             target2 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it! ")
                             target = target2
                             print("The new Target IP or URL is: " + target2)
+                                                                              
+                        elif nmap ==0:
+                            exit()
                             
                         else:
                             print("\nOops! Let's try again, shall we?\n")
@@ -310,6 +313,10 @@ def intro():
                             
                         elif root ==0:
                             exit()
+                                                                             
+                        else:
+                            print("\nOops! Let's try again, shall we?\n")
+                            rootmenu()
                           
                             
                     rootmenu()        
