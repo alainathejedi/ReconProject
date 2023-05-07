@@ -204,7 +204,7 @@ def intro():
                                     os.system("nmap -T5 " + target)
                                     scanbyspeedmenu()
                                 elif scanbyspeed ==20:
-                                    nmapmenu()
+                                    option1()
                                 elif scanbyspeed ==30:
                                     mainmenu()
                                 elif scanbyspeed ==40:
@@ -227,7 +227,7 @@ def intro():
                             nmapmenu()
                               
                         elif nmap ==20:
-                            nmapmenu()
+                            option1()
 
                         elif nmap ==30:
                             mainmenu()
@@ -298,7 +298,7 @@ def intro():
                             rootmenu()
                             
                         elif root ==20:
-                            nmapmenu()
+                            option1()
                         
                         elif root ==30:
                             mainmenu()
