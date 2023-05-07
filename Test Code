@@ -58,7 +58,7 @@ def intro():
         print("|----------------------------------|")
         print("\033[38;5;156m| *** MAIN MENU *** |\033[0m")
         print("|----------------------------------|")
-        print("| [1] \033[38;5;140mNmap\033[0m                        |")
+        print("| [1] \033[38;5;140mNmap\033[0m                         |")
         print("|----------------------------------|")
         print("| [2] Netstat                      |")
         print("|----------------------------------|")
@@ -105,7 +105,7 @@ def intro():
                     def nmapmenu():
                         global target
                         print("----------------------------------")
-                        print("\033[38;5;140mNmap Menu:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
+                        print("\033[38;5;140mNmap Menu:\033[0m | \033[38;5;226mTarget\033[0m = " + target)
                         print("----------------------------------")
                         print("[1] Only Host Discovery")
                         print("[2] Only Port Discovery")
@@ -118,8 +118,9 @@ def intro():
                         print("[9] Host interfaces and Routes")
                         print("[10] Nmap Man Page")
                         print("[11] Scan X Random Hosts")
-                        print("[20] \033[96mMain Menu\033[0m")
-                        print("[30] Reset the Target IP or URL")
+                        print("[20] \033[38;5;140mNmap Menu\033[0m")
+                        print("[30] \033[96mMain Menu\033[0m")
+                        print("[40] Reset the Target IP or URL")
                         print("[0] Exit")
                         print("----------------------------------")
 
@@ -163,7 +164,7 @@ def intro():
                             def scanbyspeedmenu():
                                 global target
                                 print("----------------------------------")
-                                print("\033[38;5;226mScan by Speed\033[0m - \033[38;5;226mTarget\033[0m = " + target)
+                                print("\033[38;5;226mScan by Speed\033[0m | \033[38;5;226mTarget\033[0m = " + target)
                                 print("----------------------------------")
                                 print("[0] Paranoia (T0, IDS Evasion)")
                                 print("[1] Sneaky Sneaky (T1, IDS Evasion)")
@@ -171,8 +172,8 @@ def intro():
                                 print("[3] Normies (T3, the normal scan speed)") 
                                 print("[4] Assertive (T4, Speeds up the scan)")
                                 print("[5] Aggressive (T5, Very speedy scan on a reliable network)")
-                                print("[6] \033[38;5;140mNmap Menu\033[0m")
-                                print("[9] \033[96mMain Menu\033[0m")
+                                print("[20] \033[38;5;140mNmap Menu\033[0m")
+                                print("[30] \033[96mMain Menu\033[0m")
                                 print("----------------------------------")
                               
 
@@ -201,8 +202,14 @@ def intro():
                                 elif scanbyspeed ==5:
                                     os.system("nmap -T5 " + target)
                                     scanbyspeedmenu()
-                                elif scanbyspeed ==6:
-                                    option1()
+                                elif scanbyspeed ==20:
+                                    nmapmenu()
+                                elif scanbyspeed ==30:
+                                    mainmenu()
+                                elif scanbyspeed ==40:
+                                    target3 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it! ")
+                                    target = target3
+                                    print("The new Target IP or URL is: " + target3)
 
                             scanbyspeedmenu()    
                         
@@ -217,11 +224,14 @@ def intro():
                             targetnumber = input("\nHow many random hosts would you like to scan? ")
                             os.system("nmap -iR " + targetnumber)
                             nmapmenu()
-
+                              
                         elif nmap ==20:
+                            nmapmenu()
+
+                        elif nmap ==30:
                             mainmenu()
                            
-                        elif nmap ==30:
+                        elif nmap ==40:
                             target2 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it! ")
                             target = target2
                             print("The new Target IP or URL is: " + target2)
@@ -236,7 +246,7 @@ def intro():
                     def rootmenu():
                         global target 
                         print("----------------------------------")
-                        print("\033[38;5;140mNmap\033[0m - \033[1mRoot Access Required:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
+                        print("\033[38;5;140mNmap\033[0m - \033[1mRoot Access Required:\033[0m | \033[38;5;226mTarget\033[0m = " + target)
                         print("----------------------------------")
                         print("[1] Operating System Scan")
                         print("[2] UDP Port Scan")
@@ -244,9 +254,10 @@ def intro():
                         print("[4] HTTP Web Server Scan (script)") 
                         print("[5] Check for XSS Vulnerabilities (script)")
                         print("[6] Check for SQL Vulnerabilities (script)")
-                        print("[8] Nmap Man Page")
-                        print("[9] \033[96mMain Menu\033[0m")
-                        print("[111] Reset the Target IP or URL")
+                        print("[10] Nmap Man Page")
+                        print("[20] \033[38;5;140mNmap Menu\033[0m")
+                        print("[30] \033[96mMain Menu\033[0m")
+                        print("[30] Reset the Target IP or URL")
                         print("[0] Exit")
                         print("----------------------------------")
                         
@@ -280,6 +291,18 @@ def intro():
                         elif root ==4:
                             os.system("nmap --script http-enum -sV " + target)
                             rootmenu()
+                        
+                        elif root ==10:
+                            os.system("nmap -h ")
+                            rootmenu()
+                            
+                        elif root ==20:
+                            nmapmenu()
+                        
+                        elif root ==30:
+                            mainmenu()
+                        
+                        
                             
                         elif root ==0:
                             exit()
