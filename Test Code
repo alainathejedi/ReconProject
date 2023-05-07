@@ -83,8 +83,8 @@ def intro():
                 print("\033[38;5;140mNmap:\033[0m")
                 print("----------------------------------")
                 print("[1] Nmap Explained and Basic Commands List")
-                print("[2] Preset Nmap scanning - Hosts and Operating Systems, Times")
-                print("[3] Preset Nmap Scanning - Ports and SYN/ACK Flags")
+                print("[2] Preset Nmap scanning")
+                print("[3] Root Access Needed - Preset Nmap Scanning")
                 print("[9] \033[96mMain Menu\033[0m")
                 print("[0] Exit")
                 print("----------------------------------")
@@ -102,58 +102,63 @@ def intro():
                     print("\nThis is the explanation of nmap and basically a little cheat sheet for the basic flags to accompany the command.\n")
                     mainmenu()
                 elif nmapoption ==2:
-                    def nmaphostmenu():
+                    def nmapmenu():
                         global target
                         print("----------------------------------")
                         print("\033[38;5;140mNmap - Hosts and Operating Systems:\033[0m - Target = " + target)
                         print("----------------------------------")
                         print("[1] Only Host Discovery")
                         print("[2] Only Port Discovery")
-                        print("[3] OS Discovery - Need \033[1mROOT\033[0m access!")
-                        print("[4] Service Version Discovery") 
-                        print("[5] Scan for Service, Traceroute, Ports, OS, and Scripts (nmap -A)")
-                        print("[6] \033[38;5;226mScan by Speed (T1, T2, etc)\033[0m")
-                        print("[7] Host interfaces and Routes")
-                        print("[8] Nmap Man Page")
-                        print("[9] \033[96mMain Menu\033[0m")
-                        print("[111] Reset the Target IP or URL")
+                        print("[3] Check a Specific Port - TCP SYN Scan (UDP in Root Access)")
+                        print("[4] Scan a Port Range")
+                        print("[5] Script Scan - Default Script (nmap -sC)")
+                        print("[6] Service Version Discovery") 
+                        print("[7] Scan for Service, Traceroute, Ports, OS, and Scripts (nmap -A)")
+                        print("[8] \033[38;5;226mScan by Speed (T1, T2, etc)\033[0m")
+                        print("[9] Host interfaces and Routes")
+                        print("[10] Nmap Man Page")
+                        print("[20] \033[96mMain Menu\033[0m")
+                        print("[30] Reset the Target IP or URL")
                         print("[0] Exit")
                         print("----------------------------------")
 
                         while True:
                             try:
-                                nmaphostos=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
+                                nmap=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
                                 break
                             except ValueError:
                                 print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
-                                nmaphostmenu()
+                                nmapmenu()
 
                                 
-                        if nmaphostos ==1:
+                        if nmap ==1:
                             os.system("nmap -sn " + target)
-                            nmaphostmenu()
-                        elif nmaphostos ==2:
+                            nmapmenu()
+                        elif nmap ==2:
                             os.system("nmap -Pn " + target)
-                            nmaphostmenu()
+                            nmapmenu()
+                            
+                        elif nmap ==3:
+                            portchoice = input("\nWhat is the port number you want to check? You can enter one TCP Port (UDP in Root Access)! ")
+                            os.system("nmap " + target + " -p " + portchoice)
+                            nmapmenu()
+                                              
+                        elif nmap ==4:
+                            portrange = input("\nWhat is the range in the port numbers you want to scan? For example, 1-100. It must be: number - number ")
+                            os.system("nmap " + target + " -p " + portrange)
+                            nmapmenu()
+                                              
+                        elif nmap ==5:
+                            os.system("nmap -sC " + target)
+                            nmapmenu()
 
-                        elif nmaphostos ==3:
-                            os.system("nmap -O " + target)
-                            oscheck = int(input("Were you able to find the OS version and information? Or would you like to do a more intense scan? Type 1 if you're good, type 2 if you need a deeper scan!"))
-                            if oscheck ==1:
-                                option1()
-                            elif oscheck ==2:
-                                os.system("nmap -O --osscan-guess " + target)
-                            else:
-                                print("\nOops! Looks like an invalid option. Let's try again, shall we? ")
-                                nmaphostmenu()
-
-                        elif nmaphostos ==4:
+                        elif nmap ==6:
                             os.system("nmap -sV " + target)
-                            nmaphostmenu()
-                        elif nmaphostos ==5:
+                            nmapmenu()
+                        elif nmap ==7:
                             os.system("nmap -A " + target)
-                            nmaphostmenu()
-                        elif nmaphostos==6:
+                            nmapmenu()
+                        elif nmap ==8:
                             def scanbyspeedmenu():
                                 global target
                                 print("----------------------------------")
@@ -200,36 +205,36 @@ def intro():
 
                             scanbyspeedmenu()    
                         
-                        elif nmaphostos == 7:
+                        elif nmap == 9:
                             os.system("nmap --iflist")
-                        elif nmaphostos ==8:
+                        elif nmap ==10:
                             os.system("nmap -h")
-                            nmaphostmenu()
+                            nmapmenu()
 
-                        elif nmaphostos ==9:
+                        elif nmap ==20:
                             mainmenu()
                            
-                        elif nmaphostos ==111:
+                        elif nmap ==30:
                             target2 = input("\nWhat IP or URL would you like to use for this scan? Note that you can always reset it!")
                             target = target2
                             print("The new Target IP or URL is: " + target2)
                             
                         else:
                             print("\nOops! Let's try again, shall we?\n")
-                            nmaphostmenu()
+                            nmapmenu()
                                     
-                    nmaphostmenu()
+                    nmapmenu()
                     
                 elif nmapoption ==3:
-                    def nmapportmenu():
+                    def rootmenu():
                         global target 
                         print("----------------------------------")
                         print("\033[38;5;140mNmap - Ports and SYN/ACK:\033[0m - Target = " + target)
                         print("----------------------------------")
-                        print("[1] Check a Specific Port - TCP SYN Scan (UDP in Root Access)")
-                        print("[2] Scan a Port Range")
-                        print("[3] Script Scan - Default Script (nmap -sC)")
-                        print("[4] ") 
+                        print("[1] Operating System Scan")
+                        print("[2] ")
+                        print("[3] ")
+                        print("[4] HTTP Web Server Scan") 
                         print("[8] Nmap Man Page")
                         print("[9] \033[96mMain Menu\033[0m")
                         print("[111] Reset the Target IP or URL")
@@ -238,26 +243,26 @@ def intro():
                         
                         while True:
                             try:
-                                nmapports=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
+                                root=int(input("\nWhat do you want to do? Just type the number, and open the various menus for nmap scanning."))
                                 break
                             except ValueError:
                                 print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
-                        if nmapports ==1:
-                            portchoice = input("\nWhat is the port number you want to check? You can enter one TCP Port (UDP in Root Access)! ")
-                            os.system("nmap " + target + " -p " + portchoice)
-                            nmapportmenu()
-                                              
-                        elif nmapports ==2:
-                            portrange = input("\nWhat is the range in the port numbers you want to scan? For example, 1-100. It must be: number - number ")
-                            os.system("nmap " + target + " -p " + portrange)
-                            nmapportmenu()
-                                              
-                        elif nmapports ==3:
-                            os.system("nmap -sC " + target)
-                            nmapportmenu()
+                        if root ==1:
+                            os.system("nmap -O " + target)
+                            oscheck = int(input("Were you able to find the OS version and information? Or would you like to do a more intense scan? Type 1 if you're good, type 2 if you need a deeper scan!"))
+                            if oscheck ==1:
+                                option1()
+                            elif oscheck ==2:
+                                os.system("nmap -O --osscan-guess " + target)
+                            else:
+                                print("\nOops! Looks like an invalid option. Let's try again, shall we? ")
+                                nmaphostmenu()
                             
-                        elif nmapports ==0:
+                        elif root ==4:
+                            os.system("nmap --script http-enum -sV " + target)
+                            
+                        elif root ==0:
                             exit()
                           
                             
