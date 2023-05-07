@@ -105,7 +105,7 @@ def intro():
                     def nmapmenu():
                         global target
                         print("----------------------------------")
-                        print("\033[38;5;140mNmap - Hosts and Operating Systems:\033[0m - Target = " + target)
+                        print("\033[38;5;140mNmap Menu:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
                         print("----------------------------------")
                         print("[1] Only Host Discovery")
                         print("[2] Only Port Discovery")
@@ -162,7 +162,7 @@ def intro():
                             def scanbyspeedmenu():
                                 global target
                                 print("----------------------------------")
-                                print("\033[38;5;226mScan by Speed\033[0m - Target = " + target)
+                                print("\033[38;5;226mScan by Speed\033[0m - \033[38;5;226mTarget\033[0m = " + target)
                                 print("----------------------------------")
                                 print("[0] Paranoia (T0, IDS Evasion)")
                                 print("[1] Sneaky Sneaky (T1, IDS Evasion)")
@@ -229,7 +229,7 @@ def intro():
                     def rootmenu():
                         global target 
                         print("----------------------------------")
-                        print("\033[38;5;140mNmap - Ports and SYN/ACK:\033[0m - Target = " + target)
+                        print("\033[38;5;140mNmap - Ports and SYN/ACK:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
                         print("----------------------------------")
                         print("[1] Operating System Scan")
                         print("[2] ")
