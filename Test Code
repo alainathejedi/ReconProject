@@ -22,11 +22,11 @@ def intro():
     print("  .      .     . :..|:                             .:|")
     print("    .   *   . : : ..||                             !:|") 
     print("  .     . . . ::. ::\(                             :)/")
-    print(" .   .     : . : .:.|. @@@@@@               @@@@@@::|")
-    print("  :.. .  :   : .:  ::|.@@@@@@@             @@@@@@@:|")
-    print(" .  .  .  ..  .  .. :\ @@@@@@@@           @@@@@@@@ :/")
-    print("  .        .* :: : -.:\ @@@@@@@@         @@@@@@@@.:/")
-    print("    .  .*   . . . . :.:\. @@@@@@@       @@@@@@@..:/")
+    print(" .   .     : . : .:.|. 033[38;5;156m@@@@@@\033[0m               033[38;5;156m@@@@@@\033[0m::|")
+    print("  :.. .  :   : .:  ::|.033[38;5;156m@@@@@@@\033[0m             033[38;5;156m@@@@@@@\033[0m:|")
+    print(" .  .  .  ..  .  .. :\ 033[38;5;156m@@@@@@@@\033[0m           033[38;5;156m@@@@@@@@\033[0m :/")
+    print("  .        .* :: : -.:\ 033[38;5;156m@@@@@@@@\033[0m         033[38;5;156m@@@@@@@@\033[0m.:/")
+    print("    .  .*   . . . . :.:\. 033[38;5;156m@@@@@@@\033[0m       033[38;5;156m@@@@@@@\033[0m..:/")
     print("      :: . . . . ::.:..:.\                   ..:/")
     print("   .   .   .  .. :  -::::.\.       | |     . .:/")
     print("      .  :  .  .  .-:..:.::.\             ..:/")
@@ -44,7 +44,7 @@ def intro():
     print("                                           \______|    |__|     |______/  |_______|| _| `._____/__/     \__\ |__| |_______/ ")
 
     global target
-    target = input("\n\n\n\033[1mWhat is the IP or URL you are attempting to scan? \033[0m")
+    target = input("\n\n\n\033[1;156mWhat is the IP or URL you are attempting to scan? \033[0m")
 
 #Thank you for visiting https://asciiart.website/
 
@@ -114,9 +114,10 @@ def intro():
                         print("[5] Script Scan - Default Script (nmap -sC)")
                         print("[6] Service Version Discovery") 
                         print("[7] Scan for Service, Traceroute, Ports, OS, and Scripts (nmap -A)")
-                        print("[8] \033[38;5;226mScan by Speed (T1, T2, etc)\033[0m")
+                        print("[8] Scan by Speed (T1, T2, etc)")
                         print("[9] Host interfaces and Routes")
                         print("[10] Nmap Man Page")
+                        print("[11] Scan X Random Hosts")
                         print("[20] \033[96mMain Menu\033[0m")
                         print("[30] Reset the Target IP or URL")
                         print("[0] Exit")
@@ -211,6 +212,11 @@ def intro():
                         elif nmap ==10:
                             os.system("nmap -h")
                             nmapmenu()
+                            
+                        elif nmap ==11:
+                            targetnumber = input("\nHow many random hosts would you like to scan? ")
+                            os.system("nmap -iR " + targetnumber)
+                            nmapmenu()
 
                         elif nmap ==20:
                             mainmenu()
@@ -234,8 +240,10 @@ def intro():
                         print("----------------------------------")
                         print("[1] Operating System Scan")
                         print("[2] UDP Port Scan")
-                        print("[3] ")
-                        print("[4] HTTP Web Server Scan") 
+                        print("[3] IP Protocol Scan")
+                        print("[4] HTTP Web Server Scan (script)") 
+                        print("[5] Check for XSS Vulnerabilities (script)")
+                        print("[6] Check for SQL Vulnerabilities (script)")
                         print("[8] Nmap Man Page")
                         print("[9] \033[96mMain Menu\033[0m")
                         print("[111] Reset the Target IP or URL")
@@ -263,6 +271,10 @@ def intro():
                         
                         elif root ==2:
                             os.system("nmap -sU " + target)
+                            rootmenu()
+                            
+                        elif root ==3:
+                            os.system("nmap -sO " + target)
                             rootmenu()
                             
                         elif root ==4:
