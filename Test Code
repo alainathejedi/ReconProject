@@ -230,7 +230,7 @@ def intro():
                     def rootmenu():
                         global target 
                         print("----------------------------------")
-                        print("\033[38;5;140mNmap - Ports and SYN/ACK:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
+                        print("\033[38;5;140mNmap - Root Access Required:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
                         print("----------------------------------")
                         print("[1] Operating System Scan")
                         print("[2] ")
@@ -258,7 +258,7 @@ def intro():
                                 os.system("nmap -O --osscan-guess " + target)
                             else:
                                 print("\nOops! Looks like an invalid option. Let's try again, shall we? ")
-                                nmaphostmenu()
+                                rootmenu()
                             
                         elif root ==4:
                             os.system("nmap --script http-enum -sV " + target)
@@ -267,7 +267,7 @@ def intro():
                             exit()
                           
                             
-                    nmapportmenu()        
+                    rootmenu()        
                             
                 
                 elif nmapoption ==9:
