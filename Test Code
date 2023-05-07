@@ -207,6 +207,7 @@ def intro():
                         
                         elif nmap == 9:
                             os.system("nmap --iflist")
+                            nmapmenu()
                         elif nmap ==10:
                             os.system("nmap -h")
                             nmapmenu()
