@@ -256,6 +256,9 @@ def intro():
                         elif nmapports ==3:
                             os.system("nmap -sC " + target)
                             nmapportmenu()
+                            
+                        elif nmapports ==0:
+                            exit()
                           
                             
                     nmapportmenu()        
@@ -356,7 +359,7 @@ def intro():
                     option4()
 
             def exit():
-                print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy hunting!\033[0m")
+                print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy threat hunting!\033[0m")
                 os._exit(0)
 
 
