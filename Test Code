@@ -233,7 +233,7 @@ def intro():
                         print("\033[38;5;140mNmap - Root Access Required:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
                         print("----------------------------------")
                         print("[1] Operating System Scan")
-                        print("[2] ")
+                        print("[2] UDP Port Scan")
                         print("[3] ")
                         print("[4] HTTP Web Server Scan") 
                         print("[8] Nmap Man Page")
@@ -253,15 +253,21 @@ def intro():
                             os.system("nmap -O " + target)
                             oscheck = int(input("Were you able to find the OS version and information? Or would you like to do a more intense scan? Type 1 if you're good, type 2 if you need a deeper scan!"))
                             if oscheck ==1:
-                                option1()
+                                rootmenu()
                             elif oscheck ==2:
                                 os.system("nmap -O --osscan-guess " + target)
+                                rootmenu()
                             else:
                                 print("\nOops! Looks like an invalid option. Let's try again, shall we? ")
                                 rootmenu()
+                        
+                        elif root ==2:
+                            os.system("nmap -sU " + target)
+                            rootmenu()
                             
                         elif root ==4:
                             os.system("nmap --script http-enum -sV " + target)
+                            rootmenu()
                             
                         elif root ==0:
                             exit()
