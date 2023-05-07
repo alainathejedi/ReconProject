@@ -230,7 +230,7 @@ def intro():
                     def rootmenu():
                         global target 
                         print("----------------------------------")
-                        print("\033[38;5;140mNmap - Root Access Required:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
+                        print("\033[38;5;140mNmap\033[0m - \033[1mRoot Access Required:\033[0m - \033[38;5;226mTarget\033[0m = " + target)
                         print("----------------------------------")
                         print("[1] Operating System Scan")
                         print("[2] UDP Port Scan")
