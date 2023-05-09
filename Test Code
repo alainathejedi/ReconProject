@@ -64,6 +64,8 @@ def intro():
         print("|----------------------------------|")
         print("| [4] Google and Google FU!        |")
         print("|----------------------------------|")
+        print("| [5] Look up Malware/CVE/CVSS     |")
+        print("|----------------------------------|")
         print("| [8] Reset the Program            |")
         print("|----------------------------------|")
         print("| [0] Exit                         |")
@@ -415,6 +417,42 @@ def intro():
                 else:
                     print("Oops! Looks like an invalid option. Want to try again?")
                     option4()
+                    
+            def option5():
+                def vulnerabilities(malwarename):
+                    url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?keyword={malwarename}&resultsPerPage=10"
+                    response = requests.get(url)
+                    data = response.json()
+
+                    if "result" in data:
+                        for result in data["result"]["CVE_Items"]:
+                            cveid = result["cve"]["CVE_data_meta"]["ID"]
+                            description = result["cve"]["description"]["description_data"][0]["value"]
+                            if "baseMetricV3" in result["impact"]:
+                                cvss = result["impact"]["baseMetricV3"]["cvssV3"]["baseScore"]
+                                print(f"CVE ID: {cveid}")
+                                print(f"CVSS: {cvss}")
+                            else:
+                                print(f"CVE ID: {cveid}")
+                                print("CVSS: Not available")
+                            print(f"Description: {description}")
+                            print("--------------")
+                    else:
+                        print("No vulnerabilities found.")
+
+                def searchbyhash(hash):
+                    # Perform hash lookup here
+                    print(f"Performing hash lookup for: {hash}")
+                    # Add your hash lookup logic or API call here
+
+                # Get user input for malware name or hash
+                malsearch = input("Enter malware name or hash value: ")
+
+                if len(malsearch) == 32 or len(malsearch) == 40:
+                    # Assuming hash length of 32 or 40 indicates a hash value
+                    searchbyhash(malsearch)
+                else:
+                    vulnerabilities(malsearch)
 
             def exit():
                 print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy threat hunting!\033[0m")
