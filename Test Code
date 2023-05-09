@@ -419,7 +419,7 @@ def intro():
                     option4()
                     
             def option5():
-                def vulnerabilities(malwarename):
+                def vulnerabilities(malware):
                     url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?keyword={malwarename}&resultsPerPage=10"
                     response = requests.get(url)
                     data = response.json()
@@ -440,19 +440,10 @@ def intro():
                     else:
                         print("No vulnerabilities found.")
 
-                def searchbyhash(hash):
-                    # Perform hash lookup here
-                    print(f"Performing hash lookup for: {hash}")
-                    # Add your hash lookup logic or API call here
-
-                # Get user input for malware name or hash
-                malsearch = input("Enter malware name or hash value: ")
-
-                if len(malsearch) == 32 or len(malsearch) == 40:
-                    # Assuming hash length of 32 or 40 indicates a hash value
-                    searchbyhash(malsearch)
-                else:
-                    vulnerabilities(malsearch)
+               
+                malware = input("Enter malware name you want more information on (Example - Trickbot: ")
+                
+                vulnerabilities(malware)
 
             def exit():
                 print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy threat hunting!\033[0m")
