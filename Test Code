@@ -420,7 +420,7 @@ def intro():
                     
             def option5():
                 def vulnerabilities(malware):
-                    url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?keyword={malwarename}&resultsPerPage=10"
+                    url = f"https://services.nvd.nist.gov/rest/json/cves/1.0?keyword={malware}&resultsPerPage=10"
                     response = requests.get(url)
                     data = response.json()
 
@@ -441,7 +441,7 @@ def intro():
                         print("No vulnerabilities found.")
 
                
-                malware = input("Enter malware name you want more information on (Example - Trickbot: ")
+                malware = input("Enter malware name you want more information on (Ex: Trickbot): ")
                 
                 vulnerabilities(malware)
 
