@@ -68,7 +68,7 @@ def intro():
         print("|----------------------------------|")
         print("| [5] Look up Malware/CVE/CVSS     |")
         print("|----------------------------------|")
-        print("| [6] TShark Menu - Analyze PCAPS  |")
+        print("| [6] /033[38;5;45mTShark Menu\033[0m - Analyze PCAPS  |")
         print("|----------------------------------|")
         print("| [8] Reset the Program            |")
         print("|----------------------------------|")
@@ -449,7 +449,7 @@ def intro():
             def option6():
                 def tsharkmenu():
                     print("----------------------------------")
-                    print("\033[1m TShark Menu\033[0m | PCAP: " + pcap)
+                    print("\033[38;5;45m TShark Menu\033[0m | \033[38;5;21mPCAP:\033[0m " + pcap)
                     print("----------------------------------")
                     print("[1] Capture Traffic with TShark ")
                     print("[2] Analyze Traffic from PCAPs")
