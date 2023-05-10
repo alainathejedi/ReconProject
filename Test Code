@@ -472,9 +472,7 @@ def intro():
                             break
                         except ValueError:
                             print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
-                       
-                       
-                    if  
+         
                             
                    
 
