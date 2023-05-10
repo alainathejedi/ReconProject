@@ -66,7 +66,7 @@ def intro():
         print("|----------------------------------|")
         print("| [4] Google and Google FU!        |")
         print("|----------------------------------|")
-        print("| [5] Look up Malware/CVE/CVSS     |")
+        print("| [5] \033[38;5;196mLook up Malware/CVE/CVSS\033[0m     |")
         print("|----------------------------------|")
         print("| [6] /033[38;5;45mTShark Menu\033[0m - Analyze PCAPS  |")
         print("|----------------------------------|")
@@ -442,7 +442,7 @@ def intro():
                         print("No vulnerabilities found.")
 
                
-                malware = input("Enter malware name you want more information on (Ex: Trickbot): ")
+                malware = input("\033[38;5;196mEnter malware name you want more information on (Ex: Trickbot):\033[0m ")
                 
                 vulnerabilities(malware)
 
