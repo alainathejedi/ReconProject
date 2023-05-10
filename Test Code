@@ -452,22 +452,12 @@ def intro():
                     print("----------------------------------")
                     print("\033[1m TShark Menu\033[0m | PCAP: " + pcap)
                     print("----------------------------------")
-                    print("[1] ")
-                    print("[2] ")
-                    print("[3] ")
+                    print("[1] Capture Traffic with TShark ")
+                    print("[2] Analyze Traffic from PCAPs")
+                    print("[30] Main Menu")
                     print("[0] Exit")
                     print("----------------------------------")
                     
-                    pcap = input("Do you have a PCAP file you want to analyze? 1 for yes, 2 to bypass to the menu! You can always reload it. ")
-                    if pcap == 1:
-                        pass
-                    elif pcap ==2:
-                        pass
-                    else: 
-                        print("Ooops! Let's try another option, shall we? ")
-                        tsharkmenu()
-                    
-
                     while True:
                         try:
                             tshark=int(input("\n\033[38;5;205mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
@@ -475,8 +465,31 @@ def intro():
                         except ValueError:
                             print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
          
-                            
                    
+                    if tsharkmenu ==1:
+                        print("Placeholder")
+                    
+                    elif tsharkmenu ==2:
+                        global pcap
+                        pcap = input("Do you have a PCAP file you want to analyze? Enter it here! ")
+
+                        def pcapanalysis():
+                            print("----------------------------------")
+                            print("\033[1m PCAP Analysis\033[0m | PCAP: " + pcap)
+                            print("----------------------------------")
+                            print("[1]  ")
+                            print("[2]  ")
+                            print("[30] Main Menu")
+                            print("[0] Exit")
+                            print("----------------------------------")
+                            
+                    elif tsharkmenu ==30:
+                        mainmenu()
+                    
+                    elif tsharkmenu ==0:
+                        exit()
+                   
+                tsharkmenu()  
 
             def exit():
                 print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy threat hunting!\033[0m")
