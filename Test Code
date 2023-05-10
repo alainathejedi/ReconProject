@@ -456,7 +456,15 @@ def intro():
                     print("[0] Exit")
                     print("----------------------------------")
                     
-                    pcap = input("What is the name of the PCAP file you want to analyze?")
+                    pcap = input("Do you have a PCAP file you want to analyze? 1 for yes, 2 to bypass to the menu! You can always reload it. ")
+                    if pcap == 1:
+                        pass
+                    elif pcap ==2:
+                        pass
+                    else: 
+                        print("Ooops! Let's try another option, shall we? ")
+                        tsharkmenu()
+                    
 
                     while True:
                         try:
@@ -464,7 +472,9 @@ def intro():
                             break
                         except ValueError:
                             print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
-                            
+                       
+                       
+                    if  
                             
                    
 
