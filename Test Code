@@ -447,7 +447,6 @@ def intro():
                 vulnerabilities(malware)
 
             def option6():
-                global pcap
                 def tsharkmenu():
                     print("----------------------------------")
                     print("\033[1m TShark Menu\033[0m | PCAP: " + pcap)
@@ -460,7 +459,7 @@ def intro():
                     
                     while True:
                         try:
-                            tshark=int(input("\n\033[38;5;205mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
+                            tsharkmenu=int(input("\n\033[38;5;205mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
                             break
                         except ValueError:
                             print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
