@@ -68,6 +68,8 @@ def intro():
         print("|----------------------------------|")
         print("| [5] Look up Malware/CVE/CVSS     |")
         print("|----------------------------------|")
+        print("| [6] TShark Menu - Analyze PCAPS  |")
+        print("|----------------------------------|")
         print("| [8] Reset the Program            |")
         print("|----------------------------------|")
         print("| [0] Exit                         |")
@@ -493,6 +495,8 @@ def intro():
                 option4()
             elif option ==5:
                 option5()
+            elif option ==6:
+                option6()
             elif option ==0:
                 exit()
             else:
