@@ -9,6 +9,7 @@ import requests
 
 
 target = ""
+pcap = ""
 
 def intro():
 
@@ -54,6 +55,7 @@ def intro():
     
     def mainmenu():
         global target
+        global pcap
         
         print("|----------------------------------|")
         print("\033[38;5;156m| *** MAIN MENU *** |\033[0m")
@@ -409,9 +411,6 @@ def intro():
                     google_search(query)
 
 
-            
-
-
                 elif googleoption ==9:
                     mainmenu()
                 else:
@@ -444,6 +443,30 @@ def intro():
                 malware = input("Enter malware name you want more information on (Ex: Trickbot): ")
                 
                 vulnerabilities(malware)
+
+            def option6():
+                global pcap
+                def tsharkmenu():
+                    print("----------------------------------")
+                    print("\033[1m TShark Menu\033[0m | PCAP: " + pcap)
+                    print("----------------------------------")
+                    print("[1] ")
+                    print("[2] ")
+                    print("[3] ")
+                    print("[0] Exit")
+                    print("----------------------------------")
+                    
+                    pcap = input("What is the name of the PCAP file you want to analyze?")
+
+                    while True:
+                        try:
+                            tshark=int(input("\n\033[38;5;205mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
+                            break
+                        except ValueError:
+                            print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
+                            
+                            
+                   
 
             def exit():
                 print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy threat hunting!\033[0m")
