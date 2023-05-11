@@ -493,12 +493,12 @@ def intro():
                                     print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
 
                             if pcapanalysis ==3:
-                                os.system("tshark -r " + pcap + " -Y "http.request" -T fields -e ip.src -e ip.dst -e tcp.dstport -e http.request.method -e http.host -e http.request.uri -e http.user_agent | sort |uniq")
-                                pcapanaylsis()
+                                os.system("tshark -r " + pcap + " -Y "\http.request\" -T fields -e ip.src -e ip.dst -e tcp.dstport -e http.request.method -e http.host -e http.request.uri -e http.user_agent | sort |uniq")
+                               
                                 
                             elif pcapanalysis ==4:
-                                os.system("tshark -r " + pcap + " -Y "dns.qry.name && udp.dstport==53 " -T fields -e ip.src -e ip.dst -e dns.qry.name | sort | uniq")
-                                pcapanalysis()
+                                os.system("tshark -r " + pcap + " -Y "\dns.qry.name && udp.dstport==53\" -T fields -e ip.src -e ip.dst -e dns.qry.name | sort | uniq")
+                               
 
                         pcapanalysis()
                         
