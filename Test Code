@@ -68,7 +68,7 @@ def intro():
         print("|----------------------------------|")
         print("| [5] \033[38;5;196mLook up Malware/CVE/CVSS\033[0m     |")
         print("|----------------------------------|")
-        print("| [6] /033[38;5;45mTShark Menu\033[0m - Analyze PCAPS  |")
+        print("| [6] \033[38;5;45mTShark Menu\033[0m - Analyze PCAPS  |")
         print("|----------------------------------|")
         print("| [8] Reset the Program            |")
         print("|----------------------------------|")
@@ -460,7 +460,7 @@ def intro():
                     
                     while True:
                         try:
-                            tsharkmenu=int(input("\n\033[38;5;205mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
+                            tsharkmenu=int(input("\n\033[38;5;45mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
                             break
                         except ValueError:
                             print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
@@ -487,7 +487,7 @@ def intro():
                             
                             while True:
                                 try:
-                                    pcapanalysis=int(input("\n\033[38;5;205mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
+                                    pcapanalysis=int(input("\n\033[38;5;45mWhat are you looking for / looking to do? Type just the number to select the option!\033[0m \n"))
                                     break
                                 except ValueError:
                                     print("\n\033[38;5;203mErmahgerd we made a DERP. Shall we try again? That was not a valid option!\033[0m\n")
@@ -511,7 +511,7 @@ def intro():
                 tsharkmenu()  
 
             def exit():
-                print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and happy threat hunting!\033[0m")
+                print("\n\033[38;5;156mAlrighty then! Thanks for visiting. I hope it helped and Happy Threat Hunting!\033[0m")
                 os._exit(0)
 
 
